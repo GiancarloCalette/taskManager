@@ -1,0 +1,96 @@
+html, body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 48px;
+}
+footer{
+    height: 30px;
+    color: white;
+    background-color: #333;
+    text-align: center;
+}
+header h1{
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+h1{
+    color: rgb(190, 190, 190);
+}
+main{
+    height: calc(100% - 48px - 30px);
+    min-height: 700px;
+}
+.parent{
+    display: flex;
+    padding: 0;
+}
+#list{
+    flex: 3;
+    background-color: rgb(243, 242, 246);
+    background-image: url(https://images.pexels.com/photos/125509/pexels-photo-125509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+#toggleForm{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+.field{
+    margin-bottom: 22px;
+}
+.field label{
+    color:#333;
+    margin-bottom: 0;
+}
+#form{
+    flex: 2;
+    background-color: rgb(191, 191, 191);
+    padding: 10px 25px 10px 25px;
+    overflow-y: auto;
+}
+.button-container{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.important{
+    font-size: 20px;
+    cursor: pointer;
+}
+.important.fa-solid{
+    color: blueviolet;
+}
+.task {
+    display: flex;
+    border-radius: 4px;
+    margin: 10px;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(191, 191, 191, 0.849);
+}
+.task .info {
+    flex: 5;
+}
+.task .info h5{
+    margin: 0 0 5px 0;
+}
+.task .info p{
+    margin: 0;
+    font-size: 14px;
+}
+.task .category {
+    flex: 1;
+}
+.task .details {
+    flex: 2;
+}
+.task .details label {
+    display: block;
+    text-align: center;
+    margin-bottom: 3px;
+}
