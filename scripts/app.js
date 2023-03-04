@@ -33,7 +33,20 @@ function SaveTask(){
     let color = $("#selColor").val();
     let task = new Task(isImportant, title,description,dueDate,category,priority,color);
     console.log(task);
-    displayTask(task);
+    $.ajax({
+        type: "POST",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks/",
+        data: JSON.stringify(task),
+        contentType:"application/json",
+        success: function(res){
+            console.log(res);
+            displayTask(task);
+        },
+        error: function(error){
+            console.log(error);
+            alert("Unexpected error");
+        }
+    })
 }
 function displayTask(task){
     let icon = "";
@@ -57,8 +70,36 @@ function displayTask(task){
     </div>`;
     $("#pending-tasks").append(syntax);
 }
+function testRequest(){
+    $.ajax({
+        type: "GET",
+        url: "http://fsdiapi.azurewebsites.net",
+        success: function (response){
+            console.log(response);
+        },
+        error: function (error){
+            console.log(error);
+        }
+    });
+}
+function loadTask(){
+    $.ajax({
+        type: "GET",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(res){
+            let data = JSON.parse(res);
+            console.log(res);
+            console.log(data);
+        },
+        error: function(error){
+            console.log(error);
+            alert("Unexpected error");
+        }
+    })
+}
 function init(){
     console.log("Task manager");
+    loadTask();
     $("#formIcon").click(toggleImportant);
     $("#hideForm").click(toggleForm);
     $("#btnSave").click(SaveTask);
